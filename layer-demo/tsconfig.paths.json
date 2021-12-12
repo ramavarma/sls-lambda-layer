@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@service/*": ["src/service/*"],
+      "@libs/*": ["src/libs/*"],
+      "@handlers/*": ["src/controllers/*"]
+    },
+    "rootDir": "./"
+  }
+}

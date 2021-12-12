@@ -1,0 +1,38 @@
+service: model-api-test
+projectDir: ./
+frameworkVersion: '2'
+
+plugins:
+  # - serverless-domain-manager
+  - serverless-webpack
+provider:
+  name: aws
+  lambdaHashingVersion: 20201221
+  runtime: nodejs12.x
+  versionFunctions: true
+  deploymentBucket:
+    name: com.serverless.provider.${self:custom.region}.deploys
+  environment:
+    NODE_PATH: "./:/opt/node_modules"
+  
+
+# package:
+#   exclude:
+#     - dist/**
+
+functions:
+  helloWorld:
+    handler: src/handler.helloWorld
+    events:
+      - http:
+          method: get
+          path: hello
+    layers:
+      - arn:aws:lambda:us-east-1:661478811874:layer:${self:custom.stage}HelloLayer:2
+    
+    
+custom:
+  stage: ${opt:stage, 'local-ap2'}
+  region: ${opt:region, 'us-east-1'}
+
+

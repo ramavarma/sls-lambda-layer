@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "outDir": "./dist",
+      "strict": true,
+      "sourceMap": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "strictPropertyInitialization": false,
+      "typeRoots": [
+          "node_modules/@types"
+      ],
+      "removeComments": true,
+      "declaration": true
+  },
+  "exclude": [
+      "dist",
+      "node_modules",
+      "./src/**/*.spec.ts"    
+  ],
+  "include": [
+      "src/**/*"
+  ]
+}
