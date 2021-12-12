@@ -16,9 +16,9 @@ provider:
     NODE_PATH: "./:/opt/node_modules"
   
 
-# package:
-#   exclude:
-#     - dist/**
+package:
+  exclude:
+    - node-modules/@demo/**
 
 functions:
   helloWorld:
@@ -28,7 +28,7 @@ functions:
           method: get
           path: hello
     layers:
-      - arn:aws:lambda:us-east-1:661478811874:layer:${self:custom.stage}HelloLayer:2
+      - arn:aws:lambda:us-east-1:661478811874:layer:${self:custom.stage}HelloLayer:4
     
     
 custom:

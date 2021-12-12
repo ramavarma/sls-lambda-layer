@@ -12,7 +12,10 @@
           "node_modules/@types"
       ],
       "removeComments": true,
-      "declaration": true
+      "declaration": true,
+      "paths": {
+        "@libs/*": ["../layer-demo/src/*"]
+      }
   },
   "exclude": [
       "dist",
