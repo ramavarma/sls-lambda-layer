@@ -4,9 +4,6 @@
   "description": "Serverless aws-nodejs-typescript template",
   "main": "serverless.ts",
   "scripts": {
-    "prepare": "npm run build",
-    "build": "tsc && cp package.json ./dist && cp .npmignore ./dist && cp package-lock.json ./dist",
-    "link": "npm run build && cd dist && sudo npm link && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -27,6 +24,7 @@
   "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
   "license": "MIT",
   "dependencies": {
-    "ts-loader": "^9.2.6"
+    "ts-loader": "^9.2.6",
+    "webpack": "^5.65.0"
   }
 }
