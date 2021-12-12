@@ -1,7 +1,11 @@
 import { APIGatewayEvent, Callback, Context, SNSEvent, SNSMessage } from 'aws-lambda';
+import slash  from 'slash';
 
-import {TestClass} from '@demo/layer-demo/libs/test-class'
-const testClass: TestClass = new TestClass();
+console.log(`The Layer directory is: ${slash(process.env.DEMO_LAYER_ROOT!)}/libs/test-class`)
+
+const TestClass =  require(`${slash(process.env.DEMO_LAYER_ROOT!)}/libs/test-class`);
+
+const testClass = new TestClass();
 export const helloWorld = ((req: APIGatewayEvent, context: Context, callback: Callback) => {
 
     const response = {

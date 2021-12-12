@@ -4,7 +4,7 @@ export class TestClass {
     }
 
     public getGreeting(): string {
-        return 'Hello how are you?'
+        return 'Hello how are you? v4'
     }
 
 }

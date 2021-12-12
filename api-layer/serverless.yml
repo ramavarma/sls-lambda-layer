@@ -3,8 +3,8 @@ projectDir: ./
 frameworkVersion: '2'
 
 plugins:
-  # - serverless-domain-manager
   - serverless-webpack
+  - serverless-offline
 provider:
   name: aws
   lambdaHashingVersion: 20201221
@@ -14,6 +14,7 @@ provider:
     name: com.serverless.provider.${self:custom.region}.deploys
   environment:
     NODE_PATH: "./:/opt/node_modules"
+    DEMO_LAYER_ROOT: ${env:LOCAL_DEMO_LAYER_ROOT, '/opt'}
   
 
 package:
@@ -28,11 +29,12 @@ functions:
           method: get
           path: hello
     layers:
-      - arn:aws:lambda:us-east-1:661478811874:layer:${self:custom.stage}HelloLayer:4
+      - arn:aws:lambda:us-east-1:661478811874:layer:${self:custom.stage}HelloLayer:latest
     
     
 custom:
   stage: ${opt:stage, 'local-ap2'}
   region: ${opt:region, 'us-east-1'}
+  
 
 
